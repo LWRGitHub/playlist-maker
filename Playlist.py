@@ -39,8 +39,10 @@ class Playlist:
       if current_node.get_title() == title:
         if prev_node != None:
           prev_node.set_next_song(current_node.get_next_song())
+          break
         else:
           current_node.set_next_song(self.__first_song)
+          break
       prev_node = current_node
       current_node = current_node.get_next_song()
     
