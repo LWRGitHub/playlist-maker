@@ -76,5 +76,14 @@ class Playlist:
       print(f'{count}. {current_node.get_title()} {count}')
       count += 1
 
+# Insert song any where in the play list
+def insert(title, index):
+  pass
 
-  
+# Shuffle songs
+def shuffle():
+  pass
+
+# Reverse songs
+def reverse():
+  pass
