@@ -74,6 +74,7 @@ class Playlist:
     current_node = self.__first_song
     while current_node != None:
       print(f'{count}. {current_node.get_title()} {count}')
+      current_node = current_node.get_next_song()
       count += 1
 
 # Insert song any where in the play list
