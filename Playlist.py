@@ -8,13 +8,16 @@ class Playlist:
   # Creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
-    # 1. Create a new song
+    #  Create a new song
     new_song = Song(title)
+
     # Set new song's next pointer to where the __first_song is pointing
-    new_song.next = self.__first_song
-    # 3. Set __first_song pointer to point at the new song
+    new_song.set_next_song(self.__first_song)
+
+    # Set __first_song pointer to point at the new song
     self.__first_song = new_song
 
+    
 
 
   # Searches for whether a song exits in the playlist and returns its index. The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index.
@@ -24,7 +27,9 @@ class Playlist:
     current_node = self.__first_song
     while current_node != None:
       if current_node.get_title() == title:
+        # print(index)
         return index
+      current_node = current_node.get_next_song()
       index += 1
     return None
 
@@ -57,7 +62,7 @@ class Playlist:
 
     while current_node != None:
       counter += 1
-      current_node = current_node.next
+      current_node = current_node.get_next_song()
 
     return counter
 
@@ -73,7 +78,7 @@ class Playlist:
     count= 1
     current_node = self.__first_song
     while current_node != None:
-      print(f'{count}. {current_node.get_title()} {count}')
+      print(f'{count}. {current_node} {count}')
       current_node = current_node.get_next_song()
       count += 1
 
